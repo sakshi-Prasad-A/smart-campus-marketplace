@@ -75,10 +75,7 @@ export async function createListingInSupabase(newListing: {
   image_url?: string | null;
   seller_id?: string;
 }): Promise<{ data: any; error: any }> {
-  const sellerId = newListing.seller_id || DEFAULT_DEMO_SELLER_ID;
-
-  const payload = {
-    seller_id: sellerId,
+  const basePayload = {
     title: newListing.title,
     description: newListing.description,
     price: newListing.price,
@@ -86,9 +83,20 @@ export async function createListingInSupabase(newListing: {
     image_url: newListing.image_url || null,
   };
 
+  // Try with seller_id if provided
+  if (newListing.seller_id) {
+    const { data, error } = await supabase
+      .from('listings')
+      .insert([{ ...basePayload, seller_id: newListing.seller_id }])
+      .select();
+
+    if (!error) return { data, error: null };
+  }
+
+  // Fallback: insert without forcing seller_id (for guest postings / RLS compatibility)
   const { data, error } = await supabase
     .from('listings')
-    .insert([payload])
+    .insert([basePayload])
     .select();
 
   return { data, error };
