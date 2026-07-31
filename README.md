@@ -2,7 +2,7 @@
 
 > A full-stack web app for **BCA students** to buy and sell used books, electronics, and lab equipment within campus — fast, safe, and mobile-first.
 
-🔗 **Live Demo:** [https://smart-campus-marketplace-tech-7e38.vercel.app](https://smart-campus-marketplace-tech-7e38.vercel.app)
+🔗 **Live Demo:** [https://smart-campus-marketplace-tech-7e38.vercel.app](https://smart-campus-marketplace-tech-7e38.vercel.app) *(Publicly Accessible — No Login Required)*
 
 📂 **GitHub Repo:** [https://github.com/sakshi-Prasad-A/smart-campus-marketplace](https://github.com/sakshi-Prasad-A/smart-campus-marketplace)
 
