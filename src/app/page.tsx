@@ -12,8 +12,10 @@ import { fetchListingsFromSupabase } from '@/lib/supabaseClient';
 import { Listing, ListingCategory } from '@/types/listing';
 import { SearchX, Database, RefreshCw, AlertCircle, CheckCircle2 } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
-  const [listings, setListings] = useState<Listing[]>(DUMMY_LISTINGS);
+  const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
   const [isLiveDatabase, setIsLiveDatabase] = useState(false);
   const [activeCategory, setActiveCategory] = useState<ListingCategory | 'All'>('All');
@@ -25,11 +27,11 @@ export default function Home() {
     setLoading(true);
     const { data, error } = await fetchListingsFromSupabase();
     
-    if (!error && data && data.length > 0) {
+    if (!error && data !== null) {
       setListings(data);
       setIsLiveDatabase(true);
     } else {
-      console.warn('Using dummy listings fallback');
+      console.warn('Using dummy listings fallback due to error:', error);
       setListings(DUMMY_LISTINGS);
       setIsLiveDatabase(false);
     }
