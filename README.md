@@ -10,11 +10,12 @@
 
 ## ✨ Features
 
-- 🏪 **Browse Listings** — Responsive card grid of campus items pulled live from Supabase
+- 🏪 **Browse Listings** — Responsive card grid of campus items pulled dynamically from Supabase
+- ⚡ **Real-Time Supabase Sync** — Immediately reflects live table additions and deletions (including zero/empty states)
 - 🔍 **Smart Search & Filtering** — Filter by category (Books / Electronics / Lab Equipment) and search by title, seller name, or roll number
 - 📦 **Item Detail Modal** — Full listing detail with seller info, condition, location, and direct WhatsApp contact
 - ➕ **Post a Listing** — `/sell` form to publish new items directly to the Supabase database
-- 🟢 **Live DB Status Bar** — Shows whether data is live from Supabase or using placeholder data
+- 🟢 **Live DB Status Bar** — Shows whether data is connected to live Supabase or fallback
 - 💬 **WhatsApp Integration** — One-click pre-filled WhatsApp message to contact the seller
 - 🌙 **Dark Glassmorphism UI** — Premium dark theme with backdrop blur, gradient text, and hover glow effects
 - 📱 **Mobile-First Responsive** — Fully responsive across phones, tablets, and desktops
